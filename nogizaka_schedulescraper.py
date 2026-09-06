@@ -7,10 +7,13 @@ Created on Thu Mar 12 20:24:48 2026
 
 import requests#Webページ取得
 import datetime
+from zoneinfo import ZoneInfo
+
+JST = ZoneInfo("Asia/Tokyo")
 
 def get_nogizaka_tv():
 
-    now = datetime.datetime.now()
+    now = datetime.datetime.now(JST)
 
     url = "https://sp.nogizaka46.com/api/schedule"
 
@@ -63,7 +66,7 @@ def get_nogizaka_tv():
             scheduled = scheduled / 1000
         
             #日付変換
-            date = datetime.datetime.fromtimestamp(scheduled)
+            date = datetime.datetime.fromtimestamp(scheduled,tz=JST)
         
             #乃木坂工事中と乃木坂スター誕生を検出
             if item["categoryName"] == "tv":
@@ -83,4 +86,3 @@ def get_nogizaka_tv():
                     #print("開始時間:", start_time)
                     #print("------")
     return shows
-

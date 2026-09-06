@@ -10,6 +10,9 @@ import datetime
 import requests
 import os
 import paho.mqtt.client as mqtt
+from zoneinfo import ZoneInfo
+
+JST = ZoneInfo("Asia/Tokyo")
 
 
 #HiveMQ Cloud
@@ -58,7 +61,7 @@ def update_next_shows():
 
     shows = get_nogizaka_tv()#番組情報取得shows     
     reserved = load_reserved()#予約番組取得
-    now = datetime.datetime.now()#今の時間
+    now = datetime.datetime.now(JST)#今の時間
             
     for show in shows:#shows配列の中を1つずつ
         
@@ -85,7 +88,8 @@ def update_next_shows():
             date.month,
             date.day,
             hour,
-            minute
+            minute,
+            tzinfo=JST
         )
 
         if start <= now:
@@ -164,7 +168,7 @@ def check_show():
         
         reserved = load_reserved()#予約番組取得
         
-        now = datetime.datetime.now()#今の時間
+        now = datetime.datetime.now(JST)#今の時間
                
         for show in shows:#shows配列の中を1つずつ
             
@@ -193,7 +197,8 @@ def check_show():
                 date.month,
                 date.day,
                 hour,
-                minute
+                minute,
+                tzinfo=JST
                 )
             
             notify_time = start - datetime.timedelta(minutes=5)

@@ -5,13 +5,37 @@ Created on Thu Mar 12 04:47:09 2026
 @author: runa6
 """
 
-from flask import Flask, request#pythonでWebサーバーを作る,スマホからpythonのデータ取得
+from flask import Flask, request, render_template_string, Response#pythonでWebサーバーを作る,スマホからpythonのデータ取得
 import auto_scheduler
-from flask import render_template_string
 import paho.mqtt.client as mqtt
 import os
+import hmac
 
 app = Flask(__name__)#Flaskアプリを作る
+
+# アクセス制限
+@app.before_request
+def require_login():
+    username = os.getenv("APP_USERNAME")
+    password = os.getenv("APP_PASSWORD")
+
+    # 認証情報が設定されていない場合はアクセスを拒否
+    if not username or not password:
+        return "Access control is not configured", 503
+
+    auth = request.authorization
+
+    # ユーザー名・パスワードを確認
+    if (
+        not auth
+        or not hmac.compare_digest(auth.username or "", username)
+        or not hmac.compare_digest(auth.password or "", password)
+    ):
+        return Response(
+            "ログインが必要です",
+            401,
+            {"WWW-Authenticate": 'Basic realm="NogizakaTV"'}
+        )
 
 #HiveMQ Cloud
 MQTT_HOST = "b9d63efc2f204cd88bb34208b8185d69.s1.eu.hivemq.cloud"

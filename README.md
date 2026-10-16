@@ -115,7 +115,7 @@ ESP32、ブレッドボード、配線をまとめて収納するため、Fusion
     </td>
     <td align="center">
       <img src="docs/case_detail.jpg" width="100%" alt="ケースに収納した状態（別角度）">
-      <br>ケースに収納した状態（別角度）
+      <br>ケースに収納した状態（開封時）
     </td>
   </tr>
 </table>

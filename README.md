@@ -158,13 +158,36 @@ Webアプリケーションを利用できるようにしました。
 
 ## 動作確認
 
-番組開始5分前にDiscord通知を行い、
-MQTTを経由してESP32へチャンネル番号を送信します。
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>1. 手動チャンネル切り替え</strong><br><br>
+      <a href="docs/Manual Channel Switching.mp4">
+        動画を見る
+      </a>
+      <br>
+      <sub>
+        スマートフォンのWeb UIからチャンネルを選択し、
+        テレビのチャンネルが切り替わる様子
+      </sub>
+    </td>
+    <td align="center" width="50%">
+      <strong>2. 予約番組の自動切り替え</strong><br><br>
+      <a href="docs/Scheduled Channel Switching.mp4">
+        動画を見る
+      </a>
+      <br>
+      <sub>
+        番組開始5分前のDiscord通知と、
+        予約番組への自動チャンネル切り替えの様子
+      </sub>
+    </td>
+  </tr>
+</table>
 
-ESP32は受信したチャンネル番号に対応する
-赤外線信号をテレビへ送信し、チャンネルを変更します。
-
-※ 動作確認動画を追加予定
+番組開始5分前にDiscordへ通知を送り、MQTTを経由してESP32へ
+チャンネル番号を送信します。ESP32は対応する赤外線信号を
+テレビへ送信し、チャンネルを切り替えます。
 
 ---
 

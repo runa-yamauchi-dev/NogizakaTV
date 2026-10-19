@@ -189,6 +189,35 @@ Webアプリケーションを利用できるようにしました。
 チャンネル番号を送信します。ESP32は対応する赤外線信号を
 テレビへ送信し、チャンネルを切り替えます。
 
+### アプリ画面
+
+### アプリ画面
+
+<table>
+  <tr>
+    <td align="center" width="33%" valign="bottom">
+      <img src="docs/app_normal.jpg" width="200" alt="通常画面">
+    </td>
+    <td align="center" width="33%" valign="bottom">
+      <img src="docs/app_reserved.jpg" width="200" alt="番組予約後">
+    </td>
+    <td align="center" width="33%" valign="bottom">
+      <img src="docs/app_notification.jpg" width="200" alt="Discord通知">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      通常画面
+    </td>
+    <td align="center">
+      番組予約後
+    </td>
+    <td align="center">
+      Discord通知
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## Author

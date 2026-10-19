@@ -191,8 +191,6 @@ Webアプリケーションを利用できるようにしました。
 
 ### アプリ画面
 
-### アプリ画面
-
 <table>
   <tr>
     <td align="center" width="33%" valign="bottom">

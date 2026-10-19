@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/NogizakaTV_icon.png" alt="NogizakaTV Logo" width="180">
+</p>
+
 # NogizakaTV
 
 乃木坂46のテレビ番組を自動予約し、
